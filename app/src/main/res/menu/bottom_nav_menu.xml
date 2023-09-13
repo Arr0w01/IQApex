@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/baseline_home_24"
+
+        android:title=""
+        />
+
+    <item
+        android:id="@+id/navigation_chart"
+        android:icon="@drawable/chart"
+        android:title=""
+        android:iconTint="@color/white"
+        />
+
+
+
+    <item
+        android:id="@+id/navigation_trade"
+        android:icon="@drawable/trade"
+        android:title="" />
+    <item
+        android:id="@+id/navigation_transaction"
+        android:icon="@drawable/transaction"
+        android:title=""
+        />
+
+</menu>
