@@ -3,7 +3,9 @@ package com.codewitharrow.iqapex;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -25,6 +27,22 @@ public class SpalshScreen extends AppCompatActivity {
         signUp = findViewById(R.id.sign_up_btn);
 
         animate();
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SpalshScreen.this, LoginScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SpalshScreen.this, LoginScreen.class);
+                startActivity(intent);
+            }
+        });
     }
 
     void animate(){

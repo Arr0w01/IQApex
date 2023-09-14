@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="progressBar" type="id" />
+    <item name="google_Sign" type="id" />
+    <item name="fb_sign" type="id" />
+    <item name="guideline2" type="id" />
+    <item name="imageView14" type="id" />
+    <item name="textView25" type="id" />
+</resources>
