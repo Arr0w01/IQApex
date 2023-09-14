@@ -6,6 +6,10 @@
     tools:context=".fragment.TransactionFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transaction_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="50dp"
+        android:paddingBottom="20dp"/>
 </FrameLayout>

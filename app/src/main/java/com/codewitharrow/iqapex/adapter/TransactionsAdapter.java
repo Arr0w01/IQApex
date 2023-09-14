@@ -22,11 +22,11 @@ import com.codewitharrow.iqapex.models.TopicsModel;
 
 import java.util.ArrayList;
 
-public class AssetAdapter extends RecyclerView.Adapter<AssetAdapter.MyViewHolder> {
+public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapter.MyViewHolder> {
 
     private Context mContext;
     private ArrayList<BCModel> list;
-    public AssetAdapter(Context mContext, ArrayList<BCModel> list)
+    public TransactionsAdapter(Context mContext, ArrayList<BCModel> list)
     {
         this.list = list;
         this.mContext = mContext;
@@ -35,7 +35,7 @@ public class AssetAdapter extends RecyclerView.Adapter<AssetAdapter.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.asset_card, parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.transaction_card, parent,false);
         return new MyViewHolder(view);
     }
 
@@ -48,18 +48,33 @@ public class AssetAdapter extends RecyclerView.Adapter<AssetAdapter.MyViewHolder
         holder.price.setText(list.get(position).getLastPrice());
         holder.gain.setText(list.get(position).getGain());
 
+        if(list.get(position).getGain().contains("-")){
+            holder.graph.setBackgroundResource(R.drawable.loss);
+            holder.gain.setTextColor(Color.RED);
+        }else {
+            holder.graph.setBackgroundResource(R.drawable.growth);
+        }
 
-        if (list.get(position).getName().equals("Bitcoin")){
+        if (list.get(position).getName().equals("BTC")){
             holder.logo.setBackgroundResource(R.drawable.bitcoin);
-        } else if (list.get(position).getName().equals("Etherium")) {
+        } else if (list.get(position).getName().equals("ETH")) {
             holder.logo.setBackgroundResource(R.drawable.ethereum);
         }
-        else if (list.get(position).getName().equals("Ripple")) {
-            holder.logo.setBackgroundResource(R.drawable.ripple);
+        else if (list.get(position).getName().equals("BNB")) {
+            holder.logo.setBackgroundResource(R.drawable.bnb);
         }
-
-
-
+        else if (list.get(position).getName().equals("CYBER")) {
+            holder.logo.setBackgroundResource(R.drawable.cyber);
+        }
+        else if (list.get(position).getName().equals("DOGE")) {
+            holder.logo.setBackgroundResource(R.drawable.doge);
+        }
+        else if (list.get(position).getName().equals("LTC")) {
+            holder.logo.setBackgroundResource(R.drawable.ltc);
+        }
+        else if (list.get(position).getName().equals("MATIC")) {
+            holder.logo.setBackgroundResource(R.drawable.matic);
+        }
 
 
         //  holder.album_art.setAdjustViewBounds(true);
@@ -82,14 +97,17 @@ public class AssetAdapter extends RecyclerView.Adapter<AssetAdapter.MyViewHolder
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
         TextView name, price, gain;
-        ImageView logo;
+        ImageView logo,graph;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 //
-            name = itemView.findViewById(R.id.asset_title_tv);
-            price  = itemView.findViewById(R.id.asset_value_tv);
-            gain = itemView.findViewById(R.id.asset_gain_tv);
-            logo = itemView.findViewById(R.id.asset_icon);
+            name = itemView.findViewById(R.id.transaction_name);
+            price  = itemView.findViewById(R.id.transaction_value);
+            gain = itemView.findViewById(R.id.transaction_growth);
+
+            logo = itemView.findViewById(R.id.transaction_icon);
+            graph = itemView.findViewById(R.id.transaction_graph);
+
 
         }
     }

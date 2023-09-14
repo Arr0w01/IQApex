@@ -198,7 +198,7 @@
                 android:layout_gravity="center"
                 android:text="BUY"
                 android:textColor="#FAF7F7"
-                android:textSize="16sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -225,7 +225,7 @@
                 android:layout_gravity="center"
                 android:text="SELL"
                 android:textColor="#F4F1F1"
-                android:textSize="16sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
