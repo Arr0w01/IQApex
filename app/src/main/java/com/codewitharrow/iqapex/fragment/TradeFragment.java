@@ -8,59 +8,57 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.anychart.anychart.AnyChart;
+import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.ChartsWaterfall;
+import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.ValueDataEntry;
 import com.codewitharrow.iqapex.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TradeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class TradeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public TradeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TradeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TradeFragment newInstance(String param1, String param2) {
-        TradeFragment fragment = new TradeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trade, container, false);
+        View view =  inflater.inflate(R.layout.fragment_trade, container, false);
+
+        AnyChartView anyChartView = view.findViewById(R.id.activity_chart);
+//        anyChartView.setProgressBar(view.findViewById(R.id.progress_bar));
+        ChartsWaterfall waterfall = AnyChart.waterfall();
+
+
+
+//
+
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new ValueDataEntry("12:00", 250));
+        data.add(new ValueDataEntry("13:00", 280));
+        data.add(new ValueDataEntry("14:00", -270));
+        data.add(new ValueDataEntry("15:00", 240));
+        data.add(new ValueDataEntry("16:00", -55));
+        data.add(new ValueDataEntry("17:00", -250));
+        data.add(new ValueDataEntry("18:00", 10));
+        data.add(new ValueDataEntry("19:00", 15));
+//        data.add(new ValueDataEntry("Aug", -1500000));
+//        data.add(new ValueDataEntry("Sep", 4200000));
+//        data.add(new ValueDataEntry("Oct", 5300000));
+//        data.add(new ValueDataEntry("Nov", -1500000));
+//        data.add(new ValueDataEntry("Dec", 5100000));
+        DataEntry end = new DataEntry();
+        end.setValue("x", "End");
+        end.setValue("isTotal", true);
+        data.add(end);
+
+        waterfall.data(data);
+
+        anyChartView.setChart(waterfall);
+
+        return view;
     }
 }

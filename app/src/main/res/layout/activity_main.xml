@@ -29,7 +29,7 @@
         android:layout_gravity="bottom"
         android:outlineProvider="bounds"
         app:backgroundTint="@color/navbar"
-        app:buttonGravity="center_vertical"
+
         app:fabAlignmentMode="end"
         app:fabAlignmentModeEndMargin="280dp"
         app:fabCradleRoundedCornerRadius="20dp"

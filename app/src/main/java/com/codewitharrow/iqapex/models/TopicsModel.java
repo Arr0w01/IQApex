@@ -1,5 +1,7 @@
 package com.codewitharrow.iqapex.models;
 
+import com.anychart.anychart.Pie;
+
 public class TopicsModel {
     String title;
 
@@ -10,7 +12,6 @@ public class TopicsModel {
 
 
     }
-
     public String getTitle() {
         return title;
     }

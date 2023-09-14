@@ -48,6 +48,7 @@ AssetAdapter assetAdapter;
             bc_details();
             assetRV = view.findViewById(R.id.asset_rv);
             assetSlider();
+
         return view;
 
     }
